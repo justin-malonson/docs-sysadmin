@@ -49,12 +49,6 @@ yum install -y epel-release
 # Install required packages
 yum install -y yum-utils psmisc
 
-# Download and install updated FreeSWITCH repository
-echo "signalwire" > /etc/yum/vars/signalwireusername
-echo ${TOKEN} > /etc/yum/vars/signalwiretoken
-wget https://$(< /etc/yum/vars/signalwireusername):$(< /etc/yum/vars/signalwiretoken)@freeswitch.signalwire.com/repo/yum/centos-release/freeswitch-release-repo-0-1.noarch.rpm
-rpm -i --replacefiles freeswitch-release-repo-0-1.noarch.rpm
-
 # Hostname setup
 hostnamectl set-hostname ${_HOSTNAME}
 
